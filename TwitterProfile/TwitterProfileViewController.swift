@@ -24,6 +24,12 @@ class TwitterProfileViewController: UIViewController {
     private func setupTableView() {
         let tweetCellNib = UINib(nibName: String(describing: TweetTableViewCell.self), bundle: nil)
         twitterProfileTableView.register(tweetCellNib, forCellReuseIdentifier: String(describing: TweetTableViewCell.self))
+        let segmentedControlHeaderNib = UINib(nibName: String(describing: SegmentedControlHeaderView.self), bundle: nil)
+        twitterProfileTableView.register(segmentedControlHeaderNib, forHeaderFooterViewReuseIdentifier: String(describing: SegmentedControlHeaderView.self))
+        
+        twitterProfileTableView.sectionHeaderHeight = UITableView.automaticDimension
+        twitterProfileTableView.estimatedSectionHeaderHeight = 46.0
+        
         twitterProfileTableView.delegate = self
         twitterProfileTableView.dataSource = self
     }

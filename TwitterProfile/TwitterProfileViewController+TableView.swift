@@ -21,6 +21,12 @@ extension TwitterProfileViewController : UITableViewDataSource {
         return tweetCell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let segmentedControlHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: SegmentedControlHeaderView.self)) as! SegmentedControlHeaderView
+        
+        return segmentedControlHeaderView
+    }
+    
 }
 
 extension TwitterProfileViewController: UITableViewDelegate {
