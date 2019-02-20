@@ -16,22 +16,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6GM-ex-hsP">
-                    <rect key="frame" x="9" y="8" width="358" height="31"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6GM-ex-hsP" customClass="CustomSegmentedControl" customModule="TwitterProfile" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="K2r-GI-urq"/>
+                    </constraints>
                     <segments>
                         <segment title="Tweets"/>
                         <segment title="Tweets &amp; replies"/>
                         <segment title="Media"/>
                         <segment title="Likes"/>
                     </segments>
+                    <color key="tintColor" red="0.30196078431372547" green="0.62352941176470589" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
             </subviews>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6GM-ex-hsP" secondAttribute="trailing" constant="8" id="XzW-eq-caN"/>
-                <constraint firstItem="6GM-ex-hsP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="bOM-eJ-yp9"/>
-                <constraint firstItem="6GM-ex-hsP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="9" id="qfS-kY-9x7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6GM-ex-hsP" secondAttribute="bottom" constant="8" id="t1J-aK-ZC8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6GM-ex-hsP" secondAttribute="trailing" id="XzW-eq-caN"/>
+                <constraint firstItem="6GM-ex-hsP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bOM-eJ-yp9"/>
+                <constraint firstItem="6GM-ex-hsP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qfS-kY-9x7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6GM-ex-hsP" secondAttribute="bottom" id="t1J-aK-ZC8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
