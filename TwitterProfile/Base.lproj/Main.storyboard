@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Twitter Profile View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TwitterProfileViewController" customModule="TwitterProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTG-IN-KrR">
+                                <rect key="frame" x="0.0" y="138" width="375" height="529"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP7-Kj-vRC" userLabel="HeaderView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HashtagBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-Zd-iP5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Rug-Zd-iP5" secondAttribute="bottom" id="6E3-TU-g7l"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rug-Zd-iP5" secondAttribute="trailing" id="7Dk-JP-rG2"/>
+                                    <constraint firstItem="Rug-Zd-iP5" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="QXu-0d-rqQ"/>
+                                    <constraint firstAttribute="height" constant="138" id="RYZ-GN-QhE"/>
+                                    <constraint firstItem="Rug-Zd-iP5" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="top" id="aB9-hW-DuR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2vP-oI-FXr"/>
+                            <constraint firstItem="xP7-Kj-vRC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="66G-I2-ICt"/>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="bottom" id="B1n-iU-NzK"/>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IUe-wt-3KT"/>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="bottom" id="OeK-IN-H7i"/>
+                            <constraint firstItem="xP7-Kj-vRC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QPl-Ns-9Dk"/>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RDb-tR-Yht"/>
+                            <constraint firstItem="xP7-Kj-vRC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SLD-fl-e1h"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
+                        <outlet property="twitterProfileTableView" destination="XTG-IN-KrR" id="eqm-7O-6do"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HashtagBackground" width="1500" height="500"/>
+    </resources>
 </document>
