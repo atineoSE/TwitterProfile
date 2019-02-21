@@ -13,6 +13,7 @@ class TwitterProfileViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var twitterProfileTableView: UITableView!
     @IBOutlet weak var tableViewHeaderView: UIView!
+    @IBOutlet weak var profileDescriptionLabel: UILabel!
     
     // MARK: - Auto Layout Constraints
     // Discussion:
@@ -49,6 +50,9 @@ class TwitterProfileViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         prepareUI()
+        
+        // Make sure we adapt to dynamic text
+        profileDescriptionLabel.text = "Twitter was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year."
     }
 
     private func setupTableView() {
@@ -66,6 +70,29 @@ class TwitterProfileViewController: UIViewController {
     
     private func prepareUI() {
         defaultHeaderViewHeight = headerViewHeightConstraint.constant
+    }
+    
+    override func viewDidLayoutSubviews() {
+        adjustTableHeaderViewSize()
+    }
+    
+    private func adjustTableHeaderViewSize() {
+        // Make the header view of the table view to be dynamic height depending on the content inside (eg: the description label)
+        
+        // UILayoutFittingCompressedSize means use the smallest possible size that can fit the content inside the header view
+        let headerSize = tableViewHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        // this check is needed as changing the frame of header view will trigger a new layout cycle, causing viewDidLayoutSubviews to be called again
+        // to prevent stuck in a loop, only change frame (ie. calling viewDidLayoutSubviews) when the height of header view havent set to minimum
+        if(tableViewHeaderView.frame.size.height != headerSize.height){
+            
+            // update the height for the table header view
+            tableViewHeaderView.frame.size.height = headerSize.height
+            
+            // this line is needed to trigger the layout update
+            twitterProfileTableView.tableHeaderView = tableViewHeaderView
+            twitterProfileTableView.layoutIfNeeded()
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
