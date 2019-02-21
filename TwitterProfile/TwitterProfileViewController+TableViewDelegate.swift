@@ -11,6 +11,16 @@ import UIKit
 
 extension TwitterProfileViewController: UITableViewDelegate {
     
+    private func pushUpHeaderView(by offset: CGFloat) {
+        guard let defaultHeaderViewHeight = defaultHeaderViewHeight else {
+            return
+        }
+        headerViewHeightConstraint.constant = defaultHeaderViewHeight
+        let newValueTopConstraint = max(-offset, -maximumHeaderViewDisplacement)
+        print("newTop = \(newValueTopConstraint)")
+        headerViewTopConstraint.constant = newValueTopConstraint
+    }
+    
     private func stretchHeaderView(by offset: CGFloat) {
         guard let defaultHeaderViewHeight = defaultHeaderViewHeight else {
             return
@@ -22,7 +32,9 @@ extension TwitterProfileViewController: UITableViewDelegate {
     }
 
     private func updateUI(offset: CGFloat) {
-        if (offset < 0) {
+        if (offset > 0) {
+            pushUpHeaderView(by: offset)
+        } else {
             stretchHeaderView(by: offset)
         }
     }

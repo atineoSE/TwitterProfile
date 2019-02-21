@@ -19,13 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XTG-IN-KrR">
-                                <rect key="frame" x="0.0" y="138" width="375" height="529"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="hxh-3h-gB6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP7-Kj-vRC" userLabel="HeaderView">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xP7-Kj-vRC" userLabel="HeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HashtagBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-Zd-iP5">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HashtagBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-Zd-iP5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                     </imageView>
                                 </subviews>
@@ -47,14 +51,15 @@
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QPl-Ns-9Dk"/>
                             <constraint firstItem="XTG-IN-KrR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RDb-tR-Yht"/>
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SLD-fl-e1h"/>
-                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="118" id="x3x-Ft-Kv4"/>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="x3x-Ft-Kv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
                         <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
-                        <outlet property="headerViewTopConstraint" destination="aB9-hW-DuR" id="wku-cA-9lS"/>
+                        <outlet property="headerViewTopConstraint" destination="QPl-Ns-9Dk" id="0wb-CS-rf6"/>
+                        <outlet property="tableViewHeaderView" destination="hxh-3h-gB6" id="qEf-kf-F2I"/>
                         <outlet property="twitterProfileTableView" destination="XTG-IN-KrR" id="eqm-7O-6do"/>
                     </connections>
                 </viewController>
