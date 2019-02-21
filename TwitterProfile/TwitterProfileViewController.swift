@@ -13,6 +13,19 @@ class TwitterProfileViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var twitterProfileTableView: UITableView!
     
+    // MARK: - Auto Layout Constraints
+    // Discussion:
+    // the top constraint is used to displace the header view upwards, when shrinking it
+    // the height constraint is used to strecth the header view
+    @IBOutlet weak var headerViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
+    
+    // At its compressed state, the header view should be 88.0 high
+    // i.e maximum upwards displacement is 138 - 88 = 50
+    let maximumHeaderViewDisplacement = CGFloat(50.0)
+    
+    var defaultHeaderViewHeight: CGFloat?
+    
     // MARK: - Custom segmented control
     var customSegmentedControl: CustomSegmentedControl? = nil
     private var horizontalInset: CGFloat {
@@ -34,6 +47,7 @@ class TwitterProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        prepareUI()
     }
 
     private func setupTableView() {
@@ -47,6 +61,10 @@ class TwitterProfileViewController: UIViewController {
         
         twitterProfileTableView.delegate = self
         twitterProfileTableView.dataSource = self
+    }
+    
+    private func prepareUI() {
+        defaultHeaderViewHeight = headerViewHeightConstraint.constant
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

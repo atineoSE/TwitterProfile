@@ -43,17 +43,18 @@
                         <constraints>
                             <constraint firstItem="XTG-IN-KrR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2vP-oI-FXr"/>
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="66G-I2-ICt"/>
-                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="bottom" id="B1n-iU-NzK"/>
                             <constraint firstItem="XTG-IN-KrR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IUe-wt-3KT"/>
-                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="bottom" id="OeK-IN-H7i"/>
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QPl-Ns-9Dk"/>
                             <constraint firstItem="XTG-IN-KrR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RDb-tR-Yht"/>
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SLD-fl-e1h"/>
+                            <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="118" id="x3x-Ft-Kv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
+                        <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
+                        <outlet property="headerViewTopConstraint" destination="aB9-hW-DuR" id="wku-cA-9lS"/>
                         <outlet property="twitterProfileTableView" destination="XTG-IN-KrR" id="eqm-7O-6do"/>
                     </connections>
                 </viewController>

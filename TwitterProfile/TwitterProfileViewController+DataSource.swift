@@ -1,5 +1,5 @@
 //
-//  TwitterProfileViewController+TableView.swift
+//  TwitterProfileViewController+DataSource.swift
 //  TwitterProfile
 //
 //  Created by Adrian Tineo on 20.02.19.
@@ -28,8 +28,4 @@ extension TwitterProfileViewController : UITableViewDataSource {
         return segmentedControlHeaderView
     }
 
-}
-
-extension TwitterProfileViewController: UITableViewDelegate {
-    
 }

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BA5EB48221D56A800D335BE /* TwitterProfileViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5EB47221D56A800D335BE /* TwitterProfileViewController+TableView.swift */; };
+		0B2DCC1E221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DCC1D221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift */; };
+		0BA5EB48221D56A800D335BE /* TwitterProfileViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5EB47221D56A800D335BE /* TwitterProfileViewController+DataSource.swift */; };
 		0BA5EB4B221D59CA00D335BE /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5EB49221D59CA00D335BE /* TweetTableViewCell.swift */; };
 		0BA5EB4C221D59CA00D335BE /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA5EB4A221D59CA00D335BE /* TweetTableViewCell.xib */; };
 		0BA5EB4E221D656A00D335BE /* SegmentedControlHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5EB4D221D656A00D335BE /* SegmentedControlHeaderView.swift */; };
@@ -22,7 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BA5EB47221D56A800D335BE /* TwitterProfileViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TwitterProfileViewController+TableView.swift"; sourceTree = "<group>"; };
+		0B2DCC1D221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TwitterProfileViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		0BA5EB47221D56A800D335BE /* TwitterProfileViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TwitterProfileViewController+DataSource.swift"; sourceTree = "<group>"; };
 		0BA5EB49221D59CA00D335BE /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		0BA5EB4A221D59CA00D335BE /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		0BA5EB4D221D656A00D335BE /* SegmentedControlHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlHeaderView.swift; sourceTree = "<group>"; };
@@ -70,7 +72,8 @@
 			children = (
 				0BF81C10221D526500A2A02F /* AppDelegate.swift */,
 				0BF81C12221D526500A2A02F /* TwitterProfileViewController.swift */,
-				0BA5EB47221D56A800D335BE /* TwitterProfileViewController+TableView.swift */,
+				0BA5EB47221D56A800D335BE /* TwitterProfileViewController+DataSource.swift */,
+				0B2DCC1D221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift */,
 				0BF81C14221D526500A2A02F /* Main.storyboard */,
 				0BF81C17221D526700A2A02F /* Assets.xcassets */,
 				0BF81C19221D526700A2A02F /* LaunchScreen.storyboard */,
@@ -158,10 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2DCC1E221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift in Sources */,
 				0BF81C13221D526500A2A02F /* TwitterProfileViewController.swift in Sources */,
 				0BF81C11221D526500A2A02F /* AppDelegate.swift in Sources */,
 				0BA5EB4E221D656A00D335BE /* SegmentedControlHeaderView.swift in Sources */,
-				0BA5EB48221D56A800D335BE /* TwitterProfileViewController+TableView.swift in Sources */,
+				0BA5EB48221D56A800D335BE /* TwitterProfileViewController+DataSource.swift in Sources */,
 				0BA5EB4B221D59CA00D335BE /* TweetTableViewCell.swift in Sources */,
 				0BA5EB52221D68EE00D335BE /* CustomSegmentedControl.swift in Sources */,
 				0BA5EB54221D992E00D335BE /* UIDevice.swift in Sources */,
