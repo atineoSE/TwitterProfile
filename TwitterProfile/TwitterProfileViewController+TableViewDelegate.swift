@@ -20,6 +20,14 @@ extension TwitterProfileViewController: UITableViewDelegate {
         headerViewTopConstraint.constant = max(-offset, -maximumHeaderViewDisplacement)
     }
     
+    private func blurHeaderView(by offset: CGFloat) {
+        print("blurView = \(blurView.alpha)")
+        
+        if(offset > maximumHeaderViewDisplacement) {
+            blurView.alpha = min((offset - maximumHeaderViewDisplacement)/maximumUsernameLabelDisplacement , 1.0)
+        }
+    }
+    
     private func stretchHeaderView(by offset: CGFloat) {
         guard let defaultHeaderViewHeight = defaultHeaderViewHeight else {
             return
@@ -69,17 +77,28 @@ extension TwitterProfileViewController: UITableViewDelegate {
         profileViewBottomConstraint.constant = defaultProfileViewBottomSpacing
     }
 
+    private func updateProfileViewRoundedCorners() {
+        profileImageView.makeRound()
+        profileContainerView.makeRound()
+    }
+    
+    private func resetBlurHeaderView() {
+        blurView.alpha = 0.0
+    }
+    
     private func updateUI(offset: CGFloat) {
         if (offset > 0) {
             pushUpHeaderView(by: offset)
             updateProfileView(by: offset)
             updateUsernameLabelView(by: offset)
+            blurHeaderView(by: offset)
         } else {
             stretchHeaderView(by: offset)
             resetProfileView()
+            resetBlurHeaderView()
         }
-        profileImageView.makeRound()
-        profileContainerView.makeRound()
+        
+        updateProfileViewRoundedCorners()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

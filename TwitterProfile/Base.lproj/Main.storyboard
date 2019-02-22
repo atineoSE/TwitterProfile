@@ -157,6 +157,14 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HashtagBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-Zd-iP5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                     </imageView>
+                                    <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgc-aD-83h">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ucp-Vh-JQD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9'119 Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFm-oF-aXQ">
                                         <rect key="frame" x="151" y="228" width="73" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -173,14 +181,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ELY-44-hp2" secondAttribute="bottom" constant="-84" id="54w-t9-CZ2"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgc-aD-83h" secondAttribute="trailing" id="5ne-qi-6uJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Rug-Zd-iP5" secondAttribute="bottom" id="6E3-TU-g7l"/>
                                     <constraint firstAttribute="trailing" secondItem="Rug-Zd-iP5" secondAttribute="trailing" id="7Dk-JP-rG2"/>
                                     <constraint firstItem="ELY-44-hp2" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="Nc3-N4-Cd9"/>
                                     <constraint firstItem="Rug-Zd-iP5" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="QXu-0d-rqQ"/>
+                                    <constraint firstItem="dgc-aD-83h" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="top" id="Qfl-m4-Vqq"/>
                                     <constraint firstAttribute="height" constant="138" id="RYZ-GN-QhE"/>
                                     <constraint firstItem="Rug-Zd-iP5" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="top" id="aB9-hW-DuR"/>
+                                    <constraint firstAttribute="bottom" secondItem="dgc-aD-83h" secondAttribute="bottom" id="bx0-W2-g7z"/>
                                     <constraint firstItem="BFm-oF-aXQ" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="rIT-X3-dGn"/>
                                     <constraint firstItem="BFm-oF-aXQ" firstAttribute="top" secondItem="ELY-44-hp2" secondAttribute="bottom" constant="6" id="reP-pf-Giw"/>
+                                    <constraint firstItem="dgc-aD-83h" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="wbg-xX-VvH"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWL-7f-9Ao" userLabel="ProfileView">
@@ -233,6 +245,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="dgc-aD-83h" id="v5g-T7-tGD"/>
                         <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
                         <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
                         <outlet property="headerViewTopConstraint" destination="QPl-Ns-9Dk" id="0wb-CS-rf6"/>
