@@ -52,6 +52,13 @@ extension TwitterProfileViewController: UITableViewDelegate {
         }
     }
     
+    private func updateUsernameLabelView(by offset: CGFloat) {
+        guard let defaultUsernameLabelBottomConstraint = defaultUsernameLabelBottomConstraint else {
+            return
+        }
+        usernameLabelBottomConstraint.constant = min(defaultUsernameLabelBottomConstraint + offset, maximumUsernameLabelDisplacement)
+    }
+    
     private func resetProfileView() {
         guard let defaultProfileViewBottomSpacing = defaultProfileViewBottomSpacing,
             let defaultProfileViewTopSpacing = defaultProfileViewTopSpacing else {
@@ -66,6 +73,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
         if (offset > 0) {
             pushUpHeaderView(by: offset)
             updateProfileView(by: offset)
+            updateUsernameLabelView(by: offset)
         } else {
             stretchHeaderView(by: offset)
             resetProfileView()

@@ -157,14 +157,30 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HashtagBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-Zd-iP5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9'119 Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFm-oF-aXQ">
+                                        <rect key="frame" x="151" y="228" width="73" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELY-44-hp2">
+                                        <rect key="frame" x="154" y="198" width="67" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ELY-44-hp2" secondAttribute="bottom" constant="-84" id="54w-t9-CZ2"/>
                                     <constraint firstAttribute="bottom" secondItem="Rug-Zd-iP5" secondAttribute="bottom" id="6E3-TU-g7l"/>
                                     <constraint firstAttribute="trailing" secondItem="Rug-Zd-iP5" secondAttribute="trailing" id="7Dk-JP-rG2"/>
+                                    <constraint firstItem="ELY-44-hp2" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="Nc3-N4-Cd9"/>
                                     <constraint firstItem="Rug-Zd-iP5" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="QXu-0d-rqQ"/>
                                     <constraint firstAttribute="height" constant="138" id="RYZ-GN-QhE"/>
                                     <constraint firstItem="Rug-Zd-iP5" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="top" id="aB9-hW-DuR"/>
+                                    <constraint firstItem="BFm-oF-aXQ" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="rIT-X3-dGn"/>
+                                    <constraint firstItem="BFm-oF-aXQ" firstAttribute="top" secondItem="ELY-44-hp2" secondAttribute="bottom" constant="6" id="reP-pf-Giw"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWL-7f-9Ao" userLabel="ProfileView">
@@ -227,6 +243,7 @@
                         <outlet property="profileViewTopConstraint" destination="Yh0-mW-qW4" id="uyS-9C-UuK"/>
                         <outlet property="tableViewHeaderView" destination="hxh-3h-gB6" id="qEf-kf-F2I"/>
                         <outlet property="twitterProfileTableView" destination="XTG-IN-KrR" id="eqm-7O-6do"/>
+                        <outlet property="usernameLabelBottomConstraint" destination="54w-t9-CZ2" id="OIk-mL-Ef6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
