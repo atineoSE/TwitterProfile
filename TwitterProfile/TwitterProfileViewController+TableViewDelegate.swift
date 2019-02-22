@@ -9,19 +9,20 @@
 import Foundation
 import UIKit
 
+let debugOffset = false
+
 extension TwitterProfileViewController: UITableViewDelegate {
-    
     private func pushUpHeaderView(by offset: CGFloat) {
         guard let defaultHeaderViewHeight = defaultHeaderViewHeight else {
             return
         }
-        print("header view top = \(headerViewTopConstraint.constant), header view height = \(headerViewHeightConstraint.constant)")
+        debugPrint("header view top = \(headerViewTopConstraint.constant), header view height = \(headerViewHeightConstraint.constant)")
         headerViewHeightConstraint.constant = defaultHeaderViewHeight
         headerViewTopConstraint.constant = max(-offset, -maximumHeaderViewDisplacement)
     }
     
     private func blurHeaderView(by offset: CGFloat) {
-        print("blurView = \(blurView.alpha)")
+        debugPrint("blurView = \(blurView.alpha)")
         if (offset < 0) {
             blurView.alpha = min(-offset/fadingHeight, 1.0)
         } else if(offset > maximumHeaderViewDisplacement) {
@@ -33,7 +34,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
         guard let defaultHeaderViewHeight = defaultHeaderViewHeight else {
             return
         }
-        print("header view top = \(headerViewTopConstraint.constant), header view height = \(headerViewHeightConstraint.constant)")
+        debugPrint("header view top = \(headerViewTopConstraint.constant), header view height = \(headerViewHeightConstraint.constant)")
         headerViewTopConstraint.constant = 0
         headerViewHeightConstraint.constant = defaultHeaderViewHeight - offset
     }
@@ -44,7 +45,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
             let defaultHeaderViewHeight = defaultHeaderViewHeight else {
                 return
         }
-        print("profile view top = \(profileViewTopConstraint.constant); profile view bottom = \(profileViewBottomConstraint.constant)")
+        debugPrint("profile view top = \(profileViewTopConstraint.constant); profile view bottom = \(profileViewBottomConstraint.constant)")
         if (offset < maximumHeaderViewDisplacement) {
             // For 0 < offset < maximumHeaderViewDisplacement, slowly reduce top constraint to scale down
             let compressedHeaderHeight = defaultHeaderViewHeight - maximumHeaderViewDisplacement
@@ -73,7 +74,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
             let defaultProfileViewTopSpacing = defaultProfileViewTopSpacing else {
                 return
         }
-        print("profile view top = \(profileViewTopConstraint.constant); profile view bottom = \(profileViewBottomConstraint.constant)")
+        debugPrint("profile view top = \(profileViewTopConstraint.constant); profile view bottom = \(profileViewBottomConstraint.constant)")
         profileViewTopConstraint.constant = defaultProfileViewTopSpacing
         profileViewBottomConstraint.constant = defaultProfileViewBottomSpacing
     }
@@ -122,7 +123,6 @@ extension TwitterProfileViewController: UITableViewDelegate {
             // simulate slow network response
             networkCallScheduled = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-                print("in closure")
                 guard let weakSelf = self else {
                     return
                 }
@@ -154,8 +154,8 @@ extension TwitterProfileViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        print("offset = \(offset)")
+        debugPrint("offset = \(offset)")
         updateUI(offset: offset, scrollView: scrollView)
     }
-    
 }
+

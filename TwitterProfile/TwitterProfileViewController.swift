@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TwitterProfileViewController: UIViewController {
+class TwitterProfileViewController: UIViewController, DebugPrintable {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var twitterProfileTableView: UITableView!
@@ -44,6 +44,8 @@ class TwitterProfileViewController: UIViewController {
     var arrowAnimator:UIViewPropertyAnimator?
     var arrowAnimationWasConfigured: Bool = false
     var networkCallScheduled: Bool = false
+    
+    var debugging: Bool = false
     
     // MARK: - Custom segmented control
     var customSegmentedControl: CustomSegmentedControl? = nil

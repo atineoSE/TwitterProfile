@@ -11,13 +11,17 @@
 
 import UIKit
 
-class CustomSegmentedControl: UISegmentedControl {
+let debugCustomSegmentedControl = false
+
+class CustomSegmentedControl: UISegmentedControl, DebugPrintable {
     @IBInspectable var primaryColor: UIColor?
     @IBInspectable var secondaryColor: UIColor?
     private var segmentBar: UIView?
     private var segmentBarLeadingConstraint: NSLayoutConstraint?
     private var segmentBarWidthConstraint: NSLayoutConstraint?
     private var usingAutoLayout: Bool = true
+    
+    var debugging: Bool = false
     
     // If instantiating from code
     override init(frame: CGRect) {
@@ -38,13 +42,13 @@ class CustomSegmentedControl: UISegmentedControl {
     }
     
     func adjustSegment(totalWidth: CGFloat) {
-        print("debug: adjust width to \(totalWidth)")
+        debugPrint("debug: adjust width to \(totalWidth)")
         setSegmentWidth(totalWidth: totalWidth)
         updateSegmentBar()
     }
     
     func setCustomizedAppearance(usingAutoLayout: Bool, totalWidth: CGFloat) {
-        print("debug: setCustomizedAppearance")
+        debugPrint("debug: setCustomizedAppearance")
         self.usingAutoLayout = usingAutoLayout
         segmentBar?.removeFromSuperview()
         setStyle()
@@ -99,16 +103,16 @@ class CustomSegmentedControl: UISegmentedControl {
         let defaultPadding: CGFloat = 8.0
         let limit = 2.0*CGFloat(numberOfSegments)*defaultPadding + segmentWidthCombined
         
-        //print("totalWidth = \(totalWidth)")
-        //print("segmentWidthCombined = \(segmentWidthCombined)")
-        //print("limit = \(limit)")
+        debugPrint("totalWidth = \(totalWidth)")
+        debugPrint("segmentWidthCombined = \(segmentWidthCombined)")
+        debugPrint("limit = \(limit)")
         
         if (limit < totalWidth) {
             // It fits alright, get padding space
             let padding = (totalWidth - segmentWidthCombined) / (2*CGFloat(numberOfSegments))
             for idx in 0..<numberOfSegments {
                 let width = segmentWidths[idx] + 2*padding
-                //print("Loose fit: Fitting segment \(idx) with padding \(padding) and width \(width)")
+                debugPrint("Loose fit: Fitting segment \(idx) with padding \(padding) and width \(width)")
                 setWidth(width, forSegmentAt: idx)
             }
         } else {
@@ -121,7 +125,7 @@ class CustomSegmentedControl: UISegmentedControl {
             for idx in 0..<numberOfSegments {
                 if (segmentWidths[idx] < averageSegmentWidth) {
                     let width = segmentWidths[idx]
-                    //print("Tight fight (below avg): Fitting segment \(idx) with padding \(defaultPadding) and width \(width)")
+                    debugPrint("Tight fight (below avg): Fitting segment \(idx) with padding \(defaultPadding) and width \(width)")
                     setWidth(width, forSegmentAt: idx)
                     assignedSegmentWidth += segmentWidths[idx]
                 } else {
@@ -131,8 +135,7 @@ class CustomSegmentedControl: UISegmentedControl {
             let availableWidth = segmentWidthCombinedAndShortened - assignedSegmentWidth
             let averageAvailableWidth = availableWidth / CGFloat(remainingSegmentIndices.count)
             for idx in remainingSegmentIndices {
-                //let width = averageAvailableWidth
-                //print("Tight fight (above avg): Fitting segment \(idx) with padding \(defaultPadding) and width \(width)")
+                debugPrint("Tight fight (above avg): Fitting segment \(idx) with padding \(defaultPadding) and width \(averageAvailableWidth)")
                 setWidth(averageAvailableWidth, forSegmentAt: idx)
             }
         }
@@ -159,12 +162,12 @@ class CustomSegmentedControl: UISegmentedControl {
                 segmentBar.heightAnchor.constraint(equalToConstant: 2.0).isActive = true
                 
                 let offset = horizontalOffset(at: selectedSegmentIndex)
-                //print("offset = \(offset)")
+                debugPrint("offset = \(offset)")
                 segmentBarLeadingConstraint = NSLayoutConstraint(item: segmentBar, attribute: .leading, relatedBy: .equal, toItem: self.superview, attribute: .leading, multiplier: 1.0, constant: offset)
                 segmentBarLeadingConstraint?.isActive = true
                 
                 let width = widthForSegment(at: selectedSegmentIndex)
-                //print("width = \(width)")
+                debugPrint("width = \(width)")
                 segmentBarWidthConstraint = NSLayoutConstraint(item: segmentBar, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: width)
                 segmentBarWidthConstraint?.isActive = true
             } else {
@@ -191,11 +194,11 @@ class CustomSegmentedControl: UISegmentedControl {
                     
                     let offset = weakSelf.horizontalOffset(at: weakSelf.selectedSegmentIndex)
                     
-                    //print("autoLayout = \(weakSelf.usingAutoLayout), offset = \(offset)")
+                    weakSelf.debugPrint("autoLayout = \(weakSelf.usingAutoLayout), offset = \(offset)")
                     segmentBarLeadingConstraint.constant = offset
                     
                     let width = weakSelf.widthForSegment(at: weakSelf.selectedSegmentIndex)
-                    //print("autoLayout = \(weakSelf.usingAutoLayout), width = \(width)")
+                    weakSelf.debugPrint("autoLayout = \(weakSelf.usingAutoLayout), width = \(width)")
                     segmentBarWidthConstraint.constant = width
                     
                     weakSelf.layoutIfNeeded()
@@ -207,14 +210,14 @@ class CustomSegmentedControl: UISegmentedControl {
                     let segmentBar = weakSelf.segmentBar {
                     
                     let offset = weakSelf.horizontalOffset(at: weakSelf.selectedSegmentIndex)
-                    //print("autoLayout = \(weakSelf.usingAutoLayout), offset = \(offset)")
+                    weakSelf.debugPrint("autoLayout = \(weakSelf.usingAutoLayout), offset = \(offset)")
                     segmentBar.frame.origin.x = offset
                     let width = weakSelf.widthForSegment(at: weakSelf.selectedSegmentIndex)
-                    //print("autoLayout = \(weakSelf.usingAutoLayout), width = \(width)")
+                    weakSelf.debugPrint("autoLayout = \(weakSelf.usingAutoLayout), width = \(width)")
                     segmentBar.frame.size = CGSize(width: width, height: 2.0)
                 }
             }
         }
     }
-    
 }
+

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B18A5B62220714A00493B47 /* DebugPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B18A5B52220714A00493B47 /* DebugPrintable.swift */; };
 		0B2DCC1E221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DCC1D221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift */; };
 		0B2DCC20221F1C24002B8621 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2DCC1F221F1C24002B8621 /* UIView.swift */; };
 		0BA5EB48221D56A800D335BE /* TwitterProfileViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5EB47221D56A800D335BE /* TwitterProfileViewController+DataSource.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B18A5B52220714A00493B47 /* DebugPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrintable.swift; sourceTree = "<group>"; };
 		0B2DCC1D221EAF69002B8621 /* TwitterProfileViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TwitterProfileViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		0B2DCC1F221F1C24002B8621 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0BA5EB47221D56A800D335BE /* TwitterProfileViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TwitterProfileViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0BA5EB51221D68EE00D335BE /* CustomSegmentedControl.swift */,
 				0BA5EB53221D992E00D335BE /* UIDevice.swift */,
 				0B2DCC1F221F1C24002B8621 /* UIView.swift */,
+				0B18A5B52220714A00493B47 /* DebugPrintable.swift */,
 			);
 			path = TwitterProfile;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				0BA5EB52221D68EE00D335BE /* CustomSegmentedControl.swift in Sources */,
 				0B2DCC20221F1C24002B8621 /* UIView.swift in Sources */,
 				0BA5EB54221D992E00D335BE /* UIDevice.swift in Sources */,
+				0B18A5B62220714A00493B47 /* DebugPrintable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
