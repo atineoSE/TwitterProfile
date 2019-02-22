@@ -29,6 +29,17 @@
                         <segment title="Likes"/>
                     </segments>
                     <color key="tintColor" red="0.30196078431372547" green="0.62352941176470589" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                            <color key="value" red="0.30196078431372547" green="0.62352941176470589" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="primaryColor">
+                            <color key="value" red="0.30196078430000001" green="0.62352941179999999" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="secondaryColor">
+                            <color key="value" red="0.40784313725490196" green="0.46274509803921571" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </segmentedControl>
             </subviews>
             <constraints>

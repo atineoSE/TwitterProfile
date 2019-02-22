@@ -12,8 +12,9 @@
 import UIKit
 
 class CustomSegmentedControl: UISegmentedControl {
+    @IBInspectable var primaryColor: UIColor?
+    @IBInspectable var secondaryColor: UIColor?
     private var segmentBar: UIView?
-    private var selectedColor: UIColor?
     private var segmentBarLeadingConstraint: NSLayoutConstraint?
     private var segmentBarWidthConstraint: NSLayoutConstraint?
     private var usingAutoLayout: Bool = true
@@ -37,13 +38,15 @@ class CustomSegmentedControl: UISegmentedControl {
     }
     
     func adjustSegment(totalWidth: CGFloat) {
+        print("debug: adjust width to \(totalWidth)")
         setSegmentWidth(totalWidth: totalWidth)
         updateSegmentBar()
     }
     
     func setCustomizedAppearance(usingAutoLayout: Bool, totalWidth: CGFloat) {
+        print("debug: setCustomizedAppearance")
         self.usingAutoLayout = usingAutoLayout
-        selectedColor = tintColor
+        segmentBar?.removeFromSuperview()
         setStyle()
         setupSegmentBar()
         adjustSegment(totalWidth: totalWidth)
@@ -58,11 +61,11 @@ class CustomSegmentedControl: UISegmentedControl {
         // Define new style
         setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18.0),
-            NSAttributedString.Key.foregroundColor: selectedColor ?? UIColor.blue
+            NSAttributedString.Key.foregroundColor: primaryColor ?? UIColor.blue
             ], for: .selected)
         setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18.0),
-            NSAttributedString.Key.foregroundColor: UIColor(red: 104/255, green: 118/255, blue: 132/255, alpha: 1.0)
+            NSAttributedString.Key.foregroundColor: secondaryColor ?? UIColor.gray
             ], for: .normal)
     }
     
@@ -141,7 +144,7 @@ class CustomSegmentedControl: UISegmentedControl {
             return
         }
         
-        segmentBar.backgroundColor = selectedColor
+        segmentBar.backgroundColor = primaryColor
         addSubview(segmentBar)
         
         addTarget(self, action: #selector(updateSegmentBar), for: .valueChanged)
