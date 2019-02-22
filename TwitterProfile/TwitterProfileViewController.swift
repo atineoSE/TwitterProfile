@@ -14,6 +14,7 @@ class TwitterProfileViewController: UIViewController {
     @IBOutlet weak var twitterProfileTableView: UITableView!
     @IBOutlet weak var tableViewHeaderView: UIView!
     @IBOutlet weak var profileDescriptionLabel: UILabel!
+    @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var profileImageView: DesignableImageView!
     
     // MARK: - Auto Layout Constraints
@@ -59,7 +60,24 @@ class TwitterProfileViewController: UIViewController {
         // Make sure we adapt to dynamic text
         profileDescriptionLabel.text = "Twitter was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year."
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        adjustTableHeaderViewSize()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        // recalculate custom segmented control when rotating device
+        if (UIDevice.isLandscape) {
+            // transitioning to wider screen, consider horizontal inset
+            customSegmentedControl?.adjustSegment(totalWidth: size.width - 2*horizontalInset)
+        } else {
+            // transitioning to narrower screen, disregard horizontal inset
+            customSegmentedControl?.adjustSegment(totalWidth: size.width)
+        }
+    }
+    
+    // MARK: - UI adjustments
     private func setupTableView() {
         let tweetCellNib = UINib(nibName: String(describing: TweetTableViewCell.self), bundle: nil)
         twitterProfileTableView.register(tweetCellNib, forCellReuseIdentifier: String(describing: TweetTableViewCell.self))
@@ -78,11 +96,7 @@ class TwitterProfileViewController: UIViewController {
         defaultProfileViewTopSpacing = profileViewTopConstraint.constant
         defaultProfileViewBottomSpacing = profileViewBottomConstraint.constant
     }
-    
-    override func viewDidLayoutSubviews() {
-        adjustTableHeaderViewSize()
-    }
-    
+
     private func adjustTableHeaderViewSize() {
         // Make the header view of the table view to be dynamic height depending on the content inside (eg: the description label)
         
@@ -102,19 +116,15 @@ class TwitterProfileViewController: UIViewController {
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        // recalculate custom segmented control when rotating device
-        if (UIDevice.isLandscape) {
-            // transitioning to wider screen, consider horizontal inset
-            customSegmentedControl?.adjustSegment(totalWidth: size.width - 2*horizontalInset)
-        } else {
-            // transitioning to narrower screen, disregard horizontal inset
-            customSegmentedControl?.adjustSegment(totalWidth: size.width)
-        }
-
+    func putProfileViewInFront() {
+        profileContainerView.layer.zPosition = 2.0
+        headerView.layer.zPosition = 1.0
     }
     
+    func putHeaderViewInFront() {
+        profileContainerView.layer.zPosition = 1.0
+        headerView.layer.zPosition = 2.0
+    }
 
 }
 

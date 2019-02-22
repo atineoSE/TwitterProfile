@@ -214,6 +214,7 @@
                         <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
                         <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
                         <outlet property="headerViewTopConstraint" destination="QPl-Ns-9Dk" id="0wb-CS-rf6"/>
+                        <outlet property="profileContainerView" destination="QWL-7f-9Ao" id="lxQ-Ke-Hlx"/>
                         <outlet property="profileDescriptionLabel" destination="lqz-10-yws" id="Q8F-c4-jlq"/>
                         <outlet property="profileImageView" destination="YsO-dK-SKB" id="ZKn-7x-fBe"/>
                         <outlet property="profileViewBottomConstraint" destination="w81-d7-3GF" id="wbi-PB-3BJ"/>

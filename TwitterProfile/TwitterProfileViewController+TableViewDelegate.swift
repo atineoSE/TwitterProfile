@@ -42,11 +42,13 @@ extension TwitterProfileViewController: UITableViewDelegate {
             let normalizingFactor = (defaultProfileViewTopSpacing - compressedHeaderHeight)/maximumHeaderViewDisplacement
             profileViewTopConstraint.constant = defaultProfileViewTopSpacing - offset*normalizingFactor
             profileViewBottomConstraint.constant = defaultProfileViewBottomSpacing
+            putProfileViewInFront()
         } else {
             // For offset >= maximumHeaderViewDisplacement, keep the relationship between top and bottom (keep scale ratio)
             // and just displace up
             profileViewTopConstraint.constant = defaultHeaderViewHeight - maximumHeaderViewDisplacement + maximumHeaderViewDisplacement - offset
             profileViewBottomConstraint.constant = defaultProfileViewBottomSpacing + maximumHeaderViewDisplacement - offset
+            putHeaderViewInFront()
         }
     }
     
