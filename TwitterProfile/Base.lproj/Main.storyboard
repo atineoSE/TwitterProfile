@@ -170,29 +170,35 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWL-7f-9Ao" userLabel="ProfileView">
                                 <rect key="frame" x="8" y="110" width="70" height="70"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterProfile" translatesAutoresizingMaskIntoConstraints="NO" id="YsO-dK-SKB" customClass="DesignableImageView" customModule="TwitterProfile" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterProfile" translatesAutoresizingMaskIntoConstraints="NO" id="YsO-dK-SKB" customClass="DesignableImageView" customModule="TwitterProfile" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="2" width="66" height="66"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="35"/>
+                                                <real key="value" value="33"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="YsO-dK-SKB" secondAttribute="trailing" id="Fwc-sq-rCb"/>
-                                    <constraint firstItem="YsO-dK-SKB" firstAttribute="top" secondItem="QWL-7f-9Ao" secondAttribute="top" id="MQq-4q-R6r"/>
-                                    <constraint firstItem="YsO-dK-SKB" firstAttribute="leading" secondItem="QWL-7f-9Ao" secondAttribute="leading" id="aSb-xa-WJJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="YsO-dK-SKB" secondAttribute="trailing" constant="2" id="Fwc-sq-rCb"/>
+                                    <constraint firstItem="YsO-dK-SKB" firstAttribute="top" secondItem="QWL-7f-9Ao" secondAttribute="top" constant="2" id="MQq-4q-R6r"/>
+                                    <constraint firstItem="YsO-dK-SKB" firstAttribute="leading" secondItem="QWL-7f-9Ao" secondAttribute="leading" constant="2" id="aSb-xa-WJJ"/>
                                     <constraint firstAttribute="height" priority="750" constant="70" id="gQl-Gm-iep"/>
-                                    <constraint firstAttribute="bottom" secondItem="YsO-dK-SKB" secondAttribute="bottom" id="sMZ-qu-BuX"/>
+                                    <constraint firstAttribute="bottom" secondItem="YsO-dK-SKB" secondAttribute="bottom" constant="2" id="sMZ-qu-BuX"/>
                                     <constraint firstAttribute="width" secondItem="QWL-7f-9Ao" secondAttribute="height" multiplier="1:1" id="t6l-Yy-DsX"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

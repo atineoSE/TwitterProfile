@@ -71,6 +71,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
             resetProfileView()
         }
         profileImageView.makeRound()
+        profileContainerView.makeRound()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
