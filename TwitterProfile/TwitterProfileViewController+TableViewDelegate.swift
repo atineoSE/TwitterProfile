@@ -23,7 +23,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
     private func blurHeaderView(by offset: CGFloat) {
         print("blurView = \(blurView.alpha)")
         if (offset < 0) {
-            blurView.alpha = min(-offset / 20.0, 1.0)
+            blurView.alpha = min(-offset/fadingHeight, 1.0)
         } else if(offset > maximumHeaderViewDisplacement) {
             blurView.alpha = min((offset - maximumHeaderViewDisplacement)/maximumUsernameLabelDisplacement , 1.0)
         }
@@ -83,6 +83,10 @@ extension TwitterProfileViewController: UITableViewDelegate {
         profileContainerView.makeRound()
     }
     
+    private func updateArrowImageView(by offset: CGFloat) {
+        arrowImageView.alpha = min(-offset/fadingHeight, 1.0)
+    }
+    
     private func updateUI(offset: CGFloat) {
         if (offset > 0) {
             pushUpHeaderView(by: offset)
@@ -91,6 +95,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
         } else {
             stretchHeaderView(by: offset)
             resetProfileView()
+            updateArrowImageView(by: offset)
         }
         blurHeaderView(by: offset)
         updateProfileViewRoundedCorners()

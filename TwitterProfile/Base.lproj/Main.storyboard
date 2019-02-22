@@ -165,6 +165,13 @@
                                         </view>
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="VDj-Am-Kpp">
+                                        <rect key="frame" x="177.5" y="59" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="9q8-IB-jn3"/>
+                                            <constraint firstAttribute="width" constant="20" id="HdL-OJ-jZR"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9'119 Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFm-oF-aXQ">
                                         <rect key="frame" x="151" y="228" width="73" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -180,10 +187,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="VDj-Am-Kpp" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="3UE-ew-RDk"/>
                                     <constraint firstAttribute="bottom" secondItem="ELY-44-hp2" secondAttribute="bottom" constant="-84" id="54w-t9-CZ2"/>
                                     <constraint firstAttribute="trailing" secondItem="dgc-aD-83h" secondAttribute="trailing" id="5ne-qi-6uJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Rug-Zd-iP5" secondAttribute="bottom" id="6E3-TU-g7l"/>
                                     <constraint firstAttribute="trailing" secondItem="Rug-Zd-iP5" secondAttribute="trailing" id="7Dk-JP-rG2"/>
+                                    <constraint firstItem="VDj-Am-Kpp" firstAttribute="centerY" secondItem="xP7-Kj-vRC" secondAttribute="centerY" id="JGt-eb-sZa"/>
                                     <constraint firstItem="ELY-44-hp2" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="Nc3-N4-Cd9"/>
                                     <constraint firstItem="Rug-Zd-iP5" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="QXu-0d-rqQ"/>
                                     <constraint firstItem="dgc-aD-83h" firstAttribute="top" secondItem="xP7-Kj-vRC" secondAttribute="top" id="Qfl-m4-Vqq"/>
@@ -245,6 +254,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="arrowImageView" destination="VDj-Am-Kpp" id="5Xl-nJ-siC"/>
                         <outlet property="blurView" destination="dgc-aD-83h" id="v5g-T7-tGD"/>
                         <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
                         <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
@@ -265,6 +275,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Arrow" width="37.5" height="37.5"/>
         <image name="Calendar" width="18" height="18"/>
         <image name="CrystallBall" width="18" height="18"/>
         <image name="HashtagBackground" width="1500" height="500"/>

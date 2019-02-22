@@ -17,6 +17,7 @@ class TwitterProfileViewController: UIViewController {
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var profileImageView: DesignableImageView!
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var arrowImageView: UIImageView!
     
     // MARK: - Auto Layout Constraints
     // Discussion:
@@ -32,6 +33,7 @@ class TwitterProfileViewController: UIViewController {
     // i.e maximum upwards displacement is 138 - 88 = 50
     let maximumHeaderViewDisplacement = CGFloat(50.0)
     let maximumUsernameLabelDisplacement = CGFloat(28.0)
+    let fadingHeight = CGFloat(25.0)
     var defaultHeaderViewHeight: CGFloat?
     var defaultProfileViewBottomSpacing: CGFloat?
     var defaultProfileViewTopSpacing: CGFloat?
