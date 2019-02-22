@@ -28,4 +28,8 @@ extension UIView {
         get { return layer.borderColor.flatMap { UIColor(cgColor: $0) } }
         set { layer.borderColor = newValue?.cgColor }
     }
+
+    func makeRound() {
+        self.cornerRadius = self.frame.size.width / 2.0
+    }
 }

@@ -14,6 +14,7 @@ class TwitterProfileViewController: UIViewController {
     @IBOutlet weak var twitterProfileTableView: UITableView!
     @IBOutlet weak var tableViewHeaderView: UIView!
     @IBOutlet weak var profileDescriptionLabel: UILabel!
+    @IBOutlet weak var profileImageView: DesignableImageView!
     
     // MARK: - Auto Layout Constraints
     // Discussion:

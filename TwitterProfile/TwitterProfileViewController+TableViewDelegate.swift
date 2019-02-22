@@ -68,6 +68,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
             stretchHeaderView(by: offset)
             resetProfileView()
         }
+        profileImageView.makeRound()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
