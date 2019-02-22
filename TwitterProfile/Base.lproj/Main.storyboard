@@ -172,10 +172,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterProfile" translatesAutoresizingMaskIntoConstraints="NO" id="YsO-dK-SKB" customClass="DesignableImageView" customModule="TwitterProfile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="J0a-4a-ZKC"/>
-                                            <constraint firstAttribute="height" constant="70" id="KkU-VI-pXM"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="35"/>
@@ -193,7 +189,9 @@
                                     <constraint firstAttribute="trailing" secondItem="YsO-dK-SKB" secondAttribute="trailing" id="Fwc-sq-rCb"/>
                                     <constraint firstItem="YsO-dK-SKB" firstAttribute="top" secondItem="QWL-7f-9Ao" secondAttribute="top" id="MQq-4q-R6r"/>
                                     <constraint firstItem="YsO-dK-SKB" firstAttribute="leading" secondItem="QWL-7f-9Ao" secondAttribute="leading" id="aSb-xa-WJJ"/>
+                                    <constraint firstAttribute="height" priority="750" constant="70" id="gQl-Gm-iep"/>
                                     <constraint firstAttribute="bottom" secondItem="YsO-dK-SKB" secondAttribute="bottom" id="sMZ-qu-BuX"/>
+                                    <constraint firstAttribute="width" secondItem="QWL-7f-9Ao" secondAttribute="height" multiplier="1:1" id="t6l-Yy-DsX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -205,8 +203,9 @@
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QPl-Ns-9Dk"/>
                             <constraint firstItem="XTG-IN-KrR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RDb-tR-Yht"/>
                             <constraint firstItem="xP7-Kj-vRC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SLD-fl-e1h"/>
-                            <constraint firstItem="QWL-7f-9Ao" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="110" id="Yh0-mW-qW4"/>
+                            <constraint firstItem="QWL-7f-9Ao" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="110" id="Yh0-mW-qW4"/>
                             <constraint firstItem="QWL-7f-9Ao" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="qrf-vr-hWw"/>
+                            <constraint firstItem="QWL-7f-9Ao" firstAttribute="bottom" secondItem="xP7-Kj-vRC" secondAttribute="bottom" constant="42" id="w81-d7-3GF"/>
                             <constraint firstItem="XTG-IN-KrR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="x3x-Ft-Kv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -216,6 +215,8 @@
                         <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
                         <outlet property="headerViewTopConstraint" destination="QPl-Ns-9Dk" id="0wb-CS-rf6"/>
                         <outlet property="profileDescriptionLabel" destination="lqz-10-yws" id="Q8F-c4-jlq"/>
+                        <outlet property="profileViewBottomConstraint" destination="w81-d7-3GF" id="wbi-PB-3BJ"/>
+                        <outlet property="profileViewTopConstraint" destination="Yh0-mW-qW4" id="uyS-9C-UuK"/>
                         <outlet property="tableViewHeaderView" destination="hxh-3h-gB6" id="qEf-kf-F2I"/>
                         <outlet property="twitterProfileTableView" destination="XTG-IN-KrR" id="eqm-7O-6do"/>
                     </connections>
