@@ -18,6 +18,7 @@ class TwitterProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: DesignableImageView!
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet weak var headerActivityIndicator: UIActivityIndicatorView!
     
     // MARK: - Auto Layout Constraints
     // Discussion:
@@ -34,10 +35,15 @@ class TwitterProfileViewController: UIViewController {
     let maximumHeaderViewDisplacement = CGFloat(50.0)
     let maximumUsernameLabelDisplacement = CGFloat(28.0)
     let fadingHeight = CGFloat(25.0)
+    let pullToRefreshHeight = CGFloat(65.0)
     var defaultHeaderViewHeight: CGFloat?
     var defaultProfileViewBottomSpacing: CGFloat?
     var defaultProfileViewTopSpacing: CGFloat?
     var defaultUsernameLabelBottomConstraint: CGFloat?
+    
+    var arrowAnimator:UIViewPropertyAnimator?
+    var arrowAnimationWasConfigured: Bool = false
+    var networkCallScheduled: Bool = false
     
     // MARK: - Custom segmented control
     var customSegmentedControl: CustomSegmentedControl? = nil
@@ -61,6 +67,7 @@ class TwitterProfileViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         prepareUI()
+        setupAnimator()
         
         // Make sure we adapt to dynamic text
         profileDescriptionLabel.text = "Twitter was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year."
@@ -103,6 +110,11 @@ class TwitterProfileViewController: UIViewController {
         defaultUsernameLabelBottomConstraint = usernameLabelBottomConstraint.constant
     }
 
+    private func setupAnimator() {
+        let timing = UICubicTimingParameters(animationCurve: .linear)
+        arrowAnimator = UIViewPropertyAnimator(duration: 0.2, timingParameters:timing)
+    }
+    
     private func adjustTableHeaderViewSize() {
         // Make the header view of the table view to be dynamic height depending on the content inside (eg: the description label)
         

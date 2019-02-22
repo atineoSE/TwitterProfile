@@ -84,18 +84,69 @@ extension TwitterProfileViewController: UITableViewDelegate {
     }
     
     private func updateArrowImageView(by offset: CGFloat) {
-        arrowImageView.alpha = min(-offset/fadingHeight, 1.0)
+        if (!arrowAnimationWasConfigured) {
+            arrowImageView.alpha = min(-offset/fadingHeight, 1.0)
+        }
     }
     
-    private func updateUI(offset: CGFloat) {
-        if (offset > 0) {
+    private func configureArrowAnimation() {
+        arrowAnimationWasConfigured = true
+        arrowAnimator?.addAnimations { [weak self] in
+            self?.arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        }
+        arrowAnimator?.addCompletion({ [weak self] _ in
+            guard let weakSelf = self else {
+                return
+            }
+            weakSelf.headerActivityIndicator.alpha = 1.0
+            weakSelf.arrowImageView.alpha = 0.0
+            weakSelf.arrowImageView.transform = CGAffineTransform(rotationAngle: 2*CGFloat.pi)
+            weakSelf.headerActivityIndicator.startAnimating()
+            let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+            selectionFeedbackGenerator.selectionChanged()
+        })
+    }
+    
+    private func animateArrowImageView(by offset: CGFloat) {
+        if (offset < -pullToRefreshHeight) {
+            if let animator = arrowAnimator,
+                !arrowAnimationWasConfigured {
+                configureArrowAnimation()
+                animator.startAnimation()
+            }
+        }
+    }
+    
+    private func hideActivityIndicator(scrollView: UIScrollView) {
+        if (headerActivityIndicator.isAnimating && !networkCallScheduled) {
+            // simulate slow network response
+            networkCallScheduled = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                print("in closure")
+                guard let weakSelf = self else {
+                    return
+                }
+                //programmatically shrink the header, i.e. scroll passed the tableHeaderView
+                weakSelf.headerActivityIndicator.alpha = 0.0
+                weakSelf.headerActivityIndicator.stopAnimating()
+                scrollView.setContentOffset(CGPoint(x: 0.0, y: weakSelf.tableViewHeaderView.frame.height), animated: true)
+                weakSelf.networkCallScheduled = false
+                weakSelf.arrowAnimationWasConfigured = false
+            }
+        }
+    }
+    
+    private func updateUI(offset: CGFloat, scrollView: UIScrollView) {
+        if (offset >= 0) {
             pushUpHeaderView(by: offset)
             updateProfileView(by: offset)
             updateUsernameLabelView(by: offset)
+            hideActivityIndicator(scrollView: scrollView)
         } else {
             stretchHeaderView(by: offset)
             resetProfileView()
             updateArrowImageView(by: offset)
+            animateArrowImageView(by: offset)
         }
         blurHeaderView(by: offset)
         updateProfileViewRoundedCorners()
@@ -104,7 +155,7 @@ extension TwitterProfileViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         print("offset = \(offset)")
-        updateUI(offset: offset)
+        updateUI(offset: offset, scrollView: scrollView)
     }
     
 }

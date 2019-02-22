@@ -165,6 +165,9 @@
                                         </view>
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
+                                    <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="akC-Nv-lRT">
+                                        <rect key="frame" x="177.5" y="59" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="VDj-Am-Kpp">
                                         <rect key="frame" x="177.5" y="59" width="20" height="20"/>
                                         <constraints>
@@ -192,6 +195,7 @@
                                     <constraint firstAttribute="trailing" secondItem="dgc-aD-83h" secondAttribute="trailing" id="5ne-qi-6uJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Rug-Zd-iP5" secondAttribute="bottom" id="6E3-TU-g7l"/>
                                     <constraint firstAttribute="trailing" secondItem="Rug-Zd-iP5" secondAttribute="trailing" id="7Dk-JP-rG2"/>
+                                    <constraint firstItem="akC-Nv-lRT" firstAttribute="centerY" secondItem="xP7-Kj-vRC" secondAttribute="centerY" id="I41-M2-Rke"/>
                                     <constraint firstItem="VDj-Am-Kpp" firstAttribute="centerY" secondItem="xP7-Kj-vRC" secondAttribute="centerY" id="JGt-eb-sZa"/>
                                     <constraint firstItem="ELY-44-hp2" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="Nc3-N4-Cd9"/>
                                     <constraint firstItem="Rug-Zd-iP5" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="QXu-0d-rqQ"/>
@@ -202,6 +206,7 @@
                                     <constraint firstItem="BFm-oF-aXQ" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="rIT-X3-dGn"/>
                                     <constraint firstItem="BFm-oF-aXQ" firstAttribute="top" secondItem="ELY-44-hp2" secondAttribute="bottom" constant="6" id="reP-pf-Giw"/>
                                     <constraint firstItem="dgc-aD-83h" firstAttribute="leading" secondItem="xP7-Kj-vRC" secondAttribute="leading" id="wbg-xX-VvH"/>
+                                    <constraint firstItem="akC-Nv-lRT" firstAttribute="centerX" secondItem="xP7-Kj-vRC" secondAttribute="centerX" id="zhH-bc-w9j"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWL-7f-9Ao" userLabel="ProfileView">
@@ -256,6 +261,7 @@
                     <connections>
                         <outlet property="arrowImageView" destination="VDj-Am-Kpp" id="5Xl-nJ-siC"/>
                         <outlet property="blurView" destination="dgc-aD-83h" id="v5g-T7-tGD"/>
+                        <outlet property="headerActivityIndicator" destination="akC-Nv-lRT" id="kCo-uM-rnn"/>
                         <outlet property="headerView" destination="xP7-Kj-vRC" id="wBm-uC-pvH"/>
                         <outlet property="headerViewHeightConstraint" destination="RYZ-GN-QhE" id="e5g-bc-vKW"/>
                         <outlet property="headerViewTopConstraint" destination="QPl-Ns-9Dk" id="0wb-CS-rf6"/>
