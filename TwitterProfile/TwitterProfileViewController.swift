@@ -71,8 +71,8 @@ class TwitterProfileViewController: UIViewController, DebugPrintable {
         prepareUI()
         setupAnimator()
         
-        // Make sure we adapt to dynamic text
-        profileDescriptionLabel.text = "Twitter was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year."
+        // Uncomment to check update of table view header to dynamic content
+        //profileDescriptionLabel.text = "Twitter was created in March 2006 by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams and launched in July of that year."
     }
     
     override func viewDidLayoutSubviews() {
